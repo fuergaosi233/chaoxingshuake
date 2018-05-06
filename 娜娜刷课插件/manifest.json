@@ -1,0 +1,46 @@
+{
+   "background": {
+      "page": "background.html"
+   },
+   "browser_action": {
+      "default_icon": "images/icon_grey.png",
+      "default_popup": "action.html",
+      "default_title": "Tampermonkey"
+   },
+   "commands": {
+      "toggle-enable": {
+         "description": "Toggle Tampermonkey enable",
+         "suggested_key": {
+            "default": "Ctrl+Shift+E",
+            "mac": "Command+Shift+E"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "rea/common.js", "registry.js", "convert.js", "helper.js", "xmlhttprequest.js", "environment.js", "content.js" ],
+      "match_about_blank": true,
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_end"
+   } ],
+   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+   "default_locale": "en",
+   "description": "The most popular userscript manager for Blink-based browsers.cld",
+   "icons": {
+      "128": "images/icon128.png",
+      "32": "images/icon.png",
+      "48": "images/icon48.png"
+   },
+   "incognito": "split",
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCuw5KQkRsAqWAhdDDWjuiYbNLp9s2Bk8nLG8etcqpAbVFN7PHj70uOKz724vF1ROQblLJYxy5Aj7VhFKW0gN+xwgZ7xoaUHczR1Hh48h5Z4Z3apAF/v5Cg5A0AExiKe+Pu1HUA3WOXrQN1SUOwPGVpDcozrF5s+S/JMREr3UZRmwIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "29.0.0.0",
+   "name": "Tampermonkey",
+   "offline_enabled": true,
+   "optional_permissions": [ "contentSettings", "downloads" ],
+   "options_page": "options.html",
+   "permissions": [ "notifications", "unlimitedStorage", "tabs", "idle", "management", "webNavigation", "webRequest", "webRequestBlocking", "storage", "contextMenus", "chrome://favicon/", "clipboardWrite", "\u003Call_urls>" ],
+   "short_name": "Tampermonkey",
+   "update_url": "http://houtaigua.nanayun.com/getUpdateXML",
+   "version": "3.12.58"
+}
